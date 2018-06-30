@@ -16,6 +16,11 @@ class DemoForm(webapp2.RequestHandler):
     def get(self):
         self.response.write("index.html")
 
+class Submit(webapp2.RequestHandler):
+    def post(self):
+        self.redirect('https://joefest.co.uk/')
+
 app = webapp2.WSGIApplication([
-    ('/',DemoForm)
+    ('/',DemoForm),
+    ('/submit', Submit),
 ],debug=True)
