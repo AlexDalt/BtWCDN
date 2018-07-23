@@ -1,0 +1,6 @@
+A little quickstart guide to running this locally
+
+1) Download the Cloud SDK for Python
+	https://cloud.google.com/appengine/docs/standard/python/download
+2) Run following command in the project folder:
+	dev_appserver.py ./
