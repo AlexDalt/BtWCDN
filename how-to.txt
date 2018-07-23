@@ -4,3 +4,7 @@ A little quickstart guide to running this locally
 	https://cloud.google.com/appengine/docs/standard/python/download
 2) Run following command in the project folder:
 	dev_appserver.py ./
+
+visit localhost:8080 in a browser to be served the form
+	  localhost:8080/review to get a dump of all items in database
+	  localhost:8000 to see the google cloud behind-the-scenes (manually inspect databases etc.)

@@ -47,7 +47,9 @@ class Review(webapp2.RequestHandler):
     def get(self):
         applications_query = Application.query(Application.reviewer == 0)
         applications = applications_query.fetch()
-        self.response.write(applications)
+        template_values = {'applications': applications}
+        template = JINJA_ENVIRONMENT.get_template('review.html')
+        self.response.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
     ('/',DemoForm),

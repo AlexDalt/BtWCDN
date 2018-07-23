@@ -3,6 +3,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /review
+  script: cdn.app
+  login: admin
+
 - url: /
   static_files: index.html
   upload: index.html
