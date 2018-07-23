@@ -4,26 +4,28 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 	</head>
 	<body>
-		<div class="container">
-			{% for application in applications %}
-			<div class="row">
-				<div class="col">
-					{{application.name}}
-				</div>
-				<div class="col">
-					{{application.hometown}}
-				</div>
-				<div class="col">
-					{{application.facebook}}
-				</div>
-				<div class="col">
-					{{application.soundcloud}}
-				</div>
-				<div class="col">
-					{{application.contact}}
-				</div>
-			</div>
-			{% endfor %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Artist Name</th>
+					<th scope="col">Hometown</th>
+					<th scope="col">Facebook</th>
+					<th scope="col">Soundcloud</th>
+					<th scope="col">Contact</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for application in applications %}
+				<tr>
+					<td>{{application.name}}</td>
+					<td>{{application.hometown}}</td>
+					<td><a href="{{application.facebook}}">{{application.facebook}}</a></td>
+					<td><a href="{{application.soundcloud}}">{{application.soundcloud}}</a></td>
+					<td><a href="mailto:{{application.contact}}">{{application.contact}}</a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 				
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -30,6 +30,8 @@ class DemoForm(webapp2.RequestHandler):
 class Submit(webapp2.RequestHandler):
     def post(self):
         application = Application()
+
+        #need to force absolute urls
         application.name = self.request.get('band_name')
         application.hometown = self.request.get('hometown')
         application.facebook = self.request.get('facebook')
