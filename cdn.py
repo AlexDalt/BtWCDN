@@ -45,10 +45,16 @@ class Submit(webapp2.RequestHandler):
 
         self.redirect('/')
 
+def vote_result(app):
+    return len(app.votes_for) - len(app.votes_against)
+
 class Review(webapp2.RequestHandler):
     def get(self):
         applications_query = Application.query()
         applications = applications_query.fetch()
+        
+        applications = sorted(applications,key=vote_result)
+
         template_values = {'applications': applications}
         template = JINJA_ENVIRONMENT.get_template('review.html')
         self.response.write(template.render(template_values))
@@ -73,7 +79,7 @@ class Vote(webapp2.RequestHandler):
                 application.votes_against.append(user_id)
 
         application.put()
-        time.sleep(0.2)
+        time.sleep(0.1)
         self.redirect('/review')
 
 
